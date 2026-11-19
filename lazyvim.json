@@ -1,0 +1,24 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.editor.neo-tree",
+    "lazyvim.plugins.extras.lang.docker",
+    "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.lang.python",
+    "lazyvim.plugins.extras.util.mini-hipatterns",
+    "plugins.extras.coding.ai.codecompanion",
+    "plugins.extras.editor.neo-tree-extended",
+    "plugins.extras.lang.ansible-extended",
+    "plugins.extras.lang.bash",
+    "plugins.extras.lang.docker-extended",
+    "plugins.extras.lang.yaml-extended",
+    "plugins.extras.util.42norm",
+    "plugins.extras.util.discordrcp",
+    "plugins.extras.util.wakatime"
+  ],
+  "install_version": 8,
+  "news": {
+    "NEWS.md": "11866"
+  },
+  "version": 8
+}

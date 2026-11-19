@@ -1,0 +1,117 @@
+Here’s a detailed walkthrough of your Neovim key mappings (`config/keymaps.lua`):
+
+### 1. **Search Current Word in Brave Search**
+   ```lua
+   map("n", "<leader>?", searching_brave, { noremap = true, silent = true, desc = "Search Current Word on Brave Search" })
+   ```
+   - Press `<leader>?` to search the word under the cursor using Brave browser.
+
+### 2. **Lazy.nvim Integration**
+   - `Lazy.nvim` is a plugin manager for Neovim. You have several shortcuts for Lazy.nvim commands:
+   - `<leader>ll`: Opens the Lazy.nvim interface.
+   - `<leader>ld`: Opens the LazyVim documentation in a browser.
+   - `<leader>lr`: Opens the LazyVim GitHub repository.
+   - `<leader>lx`: Opens LazyExtras.
+   - `<leader>lc`: Shows LazyVim's changelog.
+   - `<leader>lu`: Updates Lazy.nvim.
+   - `<leader>lC`: Runs Lazy.nvim check.
+   - `<leader>ls`: Syncs Lazy.nvim plugins.
+
+### 3. **Disable Default Key Bindings**
+   - `<leader>L` and `<leader>fT`: These are disabled (no operation assigned).
+
+### 4. **Indentation Shortcuts**
+   ```lua
+   map("n", "<", "<<", { desc = "Deindent" })
+   map("n", ">", ">>", { desc = "Indent" })
+   ```
+   - Use `<` and `>` to de-indent and indent in normal mode.
+
+### 5. **Save Without Formatting**
+   ```lua
+   map("n", "<A-s>", "<cmd>noautocmd w<CR>", { desc = "Save Without Formatting" })
+   ```
+   - Press `<A-s>` to save without applying any automatic formatting.
+
+### 6. **Cursor Navigation in Insert Mode**
+   ```lua
+   map("i", "<M-h>", "<left>")
+   map("i", "<M-l>", "<right>")
+   map("i", "<M-j>", "<down>")
+   map("i", "<M-k>", "<up>")
+   ```
+   - Use `Alt + h/l/j/k` to move the cursor left, right, down, and up in insert mode.
+
+### 7. **Increment and Decrement**
+   ```lua
+   map("n", "+", "<C-a>")
+   map("n", "-", "<C-x>")
+   ```
+   - Use `+` to increment and `-` to decrement numbers.
+
+### 8. **Tabs Management**
+   ```lua
+   map("n", "]<tab>", "<cmd>tabnext<cr>")
+   map("n", "[<tab>", "<cmd>tabprevious<cr>")
+   ```
+   - Navigate through tabs with `]<tab>` for the next tab and `[<tab>` for the previous tab.
+   - `<leader><tab>#` allows direct navigation to a tab (e.g., `<leader><tab>2` goes to tab 2).
+   - `<leader>f<tab>` opens a prompt to select a tab by displaying active buffers and directories.
+
+### 9. **Buffers Management**
+   ```lua
+   map("n", "<leader>bf", "<cmd>bfirst<cr>")
+   map("n", "<leader>ba", "<cmd>blast<cr>")
+   ```
+   - Switch to the first buffer with `<leader>bf` and to the last buffer with `<leader>ba`.
+   - `<leader>b<tab>` opens the current buffer in a new tab.
+
+### 10. **Toggle Statusline and Tabline**
+   - `<leader>uS`: Toggles the visibility of the statusline.
+   - `<leader>u<tab>`: Toggles the visibility of the tabline.
+
+### 11. **Search Inside Visual Selection**
+   ```lua
+   map("x", "g/", "<esc>/\\%V")
+   ```
+   - After visually selecting text, use `g/` to search within that selection.
+
+### 12. **Undo and Redo**
+   ```lua
+   map("n", "U", "<C-r>", { desc = "Redo" })
+   ```
+   - `U` is mapped to redo (previously undo).
+
+### 13. **Clipboard Management**
+   ```lua
+   map("n", "<C-c>", ":%y+<CR>", { desc = "Copy Whole Text to Clipboard" })
+   ```
+   - `Ctrl + C` copies the entire buffer content to the system clipboard.
+
+### 14. **Deleting Without Yanking**
+   ```lua
+   map({ "n", "x" }, "<A-d>", '"_d')
+   map({ "n", "x" }, "<A-c>", '"_c')
+   ```
+   - `Alt + d` deletes without yanking, and `Alt + c` changes without yanking.
+
+### 15. **Terminal Management**
+   ```lua
+   map("n", "<leader>ft", lazyterm, { desc = "Terminal (Root Dir)" })
+   ```
+   - `<leader>ft` opens a floating terminal in the root directory.
+
+### 16. **Git Blame**
+   ```lua
+   map("n", "<leader>ghb", LazyVim.lazygit.blame_line)
+   ```
+   - `<leader>ghb` runs Git blame on the current line.
+
+### 17. **Window Splitting**
+   ```lua
+   map("n", "<leader>_", "<C-W>s")
+   map("n", "<leader>\\", "<C-W>v")
+   ```
+   - `<leader>_` splits the window horizontally, and `<leader>\` splits it vertically.
+
+This is a comprehensive set of keymaps, integrating navigation, formatting, plugin management, and more!
